@@ -1,45 +1,45 @@
-create table if not exists Musician(
-	id serial primary key,
-	MusName varchar(40) not null
+CREATE TABLE IF NOT EXISTS Musician(
+	id serial PRIMARY KEY,
+	MusName varchar(40) NOT NULL
 );
 
-create table if not exists Genre(
-	id serial primary key,
-	GenreName varchar(80) unique not null
+CREATE TABLE IF NOT EXISTS Genre(
+	id serial PRIMARY KEY,
+	GenreName varchar(80) UNIQUE NOT NULL
 );
 
-create table if not exists MusicianGenre(
-	id serial primary key,
-	MusicianID integer references Musician(id),
-	GenreID integer references Genre(id)
+CREATE TABLE IF NOT EXISTS MusicianGenre(
+	id serial PRIMARY KEY,
+	MusicianID integer REFERENCES Musician(id),
+	GenreID integer REFERENCES Genre(id)
 );
 
-create table if not exists Album(
-	id serial primary key,
-	AlbumName varchar(40) not null,
-	ReleaseYear integer not null check(ReleaseYear > 0)
+CREATE TABLE IF NOT EXISTS Album(
+	id serial PRIMARY KEY,
+	AlbumName varchar(40) NOT NULL,
+	ReleaseYear integer NOT NULL CHECK(ReleaseYear > 0)
 );
 
-create table if not exists MusicianAlbum(
-	id serial primary key,
-	MusicianID integer references Musician(id),
-	AlbumID integer references Album(id)
+CREATE TABLE IF NOT EXISTS MusicianAlbum(
+	id serial PRIMARY KEY,
+	MusicianID integer REFERENCES Musician(id),
+	AlbumID integer REFERENCES Album(id)
 );
 
-create table if not exists Tracks(
-	id serial primary key references Album(id),
-	TrackName varchar(40) not null,
-	TrackDuration numeric(4,2) not null check(TrackDuration > 0)
+CREATE TABLE IF NOT EXISTS Tracks(
+	id serial PRIMARY KEY REFERENCES Album(id),
+	TrackName varchar(40) NOT NULL,
+	TrackDuration time NOT NULL CHECK(TrackDuration > 0)
 );
 
-create table if not exists MusSets(
-	id serial primary key,
-	SetName varchar(60) not null,
-	ReleaseYear integer check(ReleaseYear > 0) 
+CREATE TABLE IF NOT EXISTS MusSets(
+	id serial PRIMARY KEY,
+	SetName varchar(60) NOT NULL,
+	ReleaseYear integer CHECK(ReleaseYear > 0) 
 );
 
-create table if not exists TrackMusSets(
-	id serial primary key,
-	TrackID integer references Tracks(id),
-	SetID integer references MusSets(id)
+CREATE TABLE IF NOT EXISTS TrackMusSets(
+	id serial PRIMARY KEY,
+	TrackID integer REFERENCES Tracks(id),
+	SetID integer REFERENCES MusSets(id)
 );

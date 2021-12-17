@@ -1,11 +1,11 @@
-create table if not exists Department(
-	id serial primary key,
-	DepartmentName varchar(60) not null unique
+CREATE TABLE IF NOT EXISTS Department(
+	id serial PRIMARY KEY,
+	DepartmentName varchar(60) NOT NULL UNIQUE
 );
 
-create table if not exists Worker(
-	id serial primary key,
-	Name varchar(40) not null,
-	IsDirector integer references Worker(id),
-	DepartmentID integer references Department(id)
+CREATE TABLE IF NOT EXISTS Worker(
+	id serial PRIMARY KEY,
+	Name varchar(40) NOT NULL,
+	IsDirector integer REFERENCES Worker(id),
+	DepartmentID integer REFERENCES Department(id)
 );
