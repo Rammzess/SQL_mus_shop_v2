@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS Tracks(
 CREATE TABLE IF NOT EXISTS MusSets(
 	id serial PRIMARY KEY,
 	SetName varchar(60) NOT NULL,
-	ReleaseYear integer CHECK(ReleaseYear > 0) 
+	ReleaseYear integer CHECK(ReleaseYear > 0)
 );
 
 CREATE TABLE IF NOT EXISTS TrackMusSets(
