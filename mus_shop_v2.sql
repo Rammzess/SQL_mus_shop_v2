@@ -29,7 +29,7 @@ create table if not exists MusicianAlbum(
 create table if not exists Tracks(
 	id serial primary key references Album(id),
 	TrackName varchar(40) not null,
-	TrackDuration numeric(2,2) not null check(TrackDuration > 0)
+	TrackDuration numeric(4,2) not null check(TrackDuration > 0)
 );
 
 create table if not exists MusSets(
