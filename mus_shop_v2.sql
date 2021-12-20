@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS MusicianAlbum(
 
 CREATE TABLE IF NOT EXISTS Tracks(
 	id serial PRIMARY KEY,
-	album_id integer REFERENCES Album(id),
+	Album_id integer REFERENCES Album(id),
 	TrackName varchar(40) NOT NULL,
 	TrackDuration time NOT NULL CHECK(TrackDuration > 0)
 );
