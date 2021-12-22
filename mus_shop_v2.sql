@@ -28,9 +28,9 @@ CREATE TABLE IF NOT EXISTS MusicianAlbum(
 
 CREATE TABLE IF NOT EXISTS Tracks(
 	id serial PRIMARY KEY,
-	Album_id integer REFERENCES Album(id),
+	AlbumID integer REFERENCES Album(id),
 	TrackName varchar(40) NOT NULL,
-	TrackDuration time NOT NULL CHECK(TrackDuration > 0)
+	TrackDuration numeric(5,2) NOT NULL CHECK(TrackDuration > 0)
 );
 
 CREATE TABLE IF NOT EXISTS MusSets(
